@@ -1,8 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-// import './App.css';
+import {useSelector} from 'react-redux';
 
 function App() {
+  const notes = useSelector(state=>state)
+  console.log(notes)
   return (
     <div className="App">
       <h1 className="text-red-500">Yo</h1>

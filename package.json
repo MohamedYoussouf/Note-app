@@ -10,7 +10,9 @@
     "postcss-cli": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
     "tailwindcss": "^1.7.6"
   },
   "scripts": {
@@ -18,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:style":"tailwind build src/styles/index.css -o src/styles/tailwind.css"
+    "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css"
   },
   "eslintConfig": {
     "extends": "react-app"
