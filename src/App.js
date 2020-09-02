@@ -1,12 +1,13 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+
+import NoteList from './components/NoteList'
+import NoteViewer from './components/NoteViewer'
 
 function App() {
-  const notes = useSelector(state=>state)
-  console.log(notes)
   return (
-    <div className="App">
-      <h1 className="text-red-500">Yo</h1>
+    <div className="flex h-full bg-white">
+      <NoteList />
+      <NoteViewer />
     </div>
   );
 }
