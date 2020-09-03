@@ -15,9 +15,8 @@ const initialeState = [
 
 function notesReducer(state = initialeState, action) {
     switch (action.type) {
-        case 'value':
-            
-            break;
+        case 'ADD_NEW_NOTE':
+            return [...state, action.payload]
     
         default:
             return state
