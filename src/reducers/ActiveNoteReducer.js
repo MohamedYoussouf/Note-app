@@ -4,7 +4,8 @@ const activeNoteReducer = (state = initialState, action) => {
     switch (action.type) {
 
     case 'VIEW_ACTIVE_NOTE':
-        return {...state, ...action.payload}
+        console.log(action.index)
+        return {...state, ...action.payload, index:action.index}
 
     default:
         return state

@@ -1,28 +1,41 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 export default function AddNoteForm() {
     const [value, setValue] = useState('');
     const dispatch = useDispatch();
-    const handleSubmit = e => {
-        e.preventDefault();
 
+    useEffect(() => {
         const newNote = {
-            text: value,
+            text: 'New note',
             date: 'xx/xx/xxxxx'
         }
         dispatch({type:'ADD_NEW_NOTE',payload:newNote})
-    }
+    }, [])
+
+    useEffect(() => {
+        if (value !== '') {
+            const newNote = {
+                text: value,
+                date: 'xx/xx/xxxxx'
+            }
+            dispatch({type:'UPDATE_NOTE',payload:newNote})
+        }
+    }, [value])
+
+    
     return (
         <div className="w-auto sm:w-4/6 md:w-3/4 overflow-auto">
-            <form 
-                className="px-3 py-5"
-                onSubmit={handleSubmit}>
-                <div className="flex flex-row justify-between">
-                    <h3>Add new note</h3>
-                    <button className="px-5 py-2 bg-blue-500 text-white font-bold">Save note</button>
+            <form className="w-4/6 h-full mx-auto py-5 flex flex-col">
+                
+                <div className="flex flex-row justify-between items-center">
+                    <h3 className="text-2xl font-bold">Add new note</h3>
                 </div>
-                <textarea onChange={e=>setValue(e.target.value)} value={value} />
+                <textarea 
+                    className="flex-grow pt-6 outline-none"
+                    onChange={(e)=>setValue(e.target.value)} 
+                    value={value}
+                    placeholder="Write your thoughts!" />
             </form>
         </div>
     );

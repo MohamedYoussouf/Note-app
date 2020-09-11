@@ -16,7 +16,16 @@ const initialeState = [
 function notesReducer(state = initialeState, action) {
     switch (action.type) {
         case 'ADD_NEW_NOTE':
-            return [...state, action.payload]
+            return [action.payload, ...state]
+    
+        case 'UPDATE_NOTE':
+            return state.map((item, index)=>{
+                if (index !== 0) {
+                    return item
+                }
+
+                return {...item, ...action.payload}
+            })
     
         default:
             return state
